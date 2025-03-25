@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "author": "João Silva",
+        "comment": "Este é um ótimo post!",
+        "date": "2023-10-01"
+    },
+    {
+        "id": 2,
+        "author": "Maria Oliveira",
+        "comment": "Concordo com o que foi dito.",
+        "date": "2023-10-02"
+    },
+    {
+        "id": 3,
+        "author": "Carlos Souza",
+        "comment": "Muito interessante, obrigado por compartilhar.",
+        "date": "2023-10-03"
+    }
+]

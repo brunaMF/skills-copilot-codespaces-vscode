@@ -18,24 +18,25 @@ app.get('/', (req, res) => {
 }); 
 
 app.get('/comments', (req, res) => {
-    fs.readFile('comments.json', (err, data) => {
+    fs.readFile(path.join(__dirname, 'comments.json'), (err, data) => {
         if (err) {
             res.status(500).send('Error reading comments.json');
             return;
         }
+        res.setHeader('Content-Type', 'application/json');
         res.send(data);
     });
 });
 
 app.post('/comments', (req, res) => {
-    fs.readFile('comments.json', (err, data) => {
+    fs.readFile(path.join(__dirname, 'comments.json'), (err, data) => {
         if (err) {
             res.status(500).send('Error reading comments.json');
             return;
         }
         const comments = JSON.parse(data);
         comments.push(req.body);
-        fs.writeFile('comments.json', JSON.stringify(comments), (err) => {
+        fs.writeFile(path.join(__dirname, 'comments.json'), JSON.stringify(comments), (err) => {
             if (err) {
                 res.status(500).send('Error writing comments.json');
                 return;
@@ -48,5 +49,4 @@ app.post('/comments', (req, res) => {
 // Start web server
 app.listen(3000, () => {
     console.log('Server running on http://localhost:3000');
-}); 
-
+});
